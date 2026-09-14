@@ -11,6 +11,18 @@ export default defineConfig(() => {
   return {
     base: './',
     plugins: [
+      {
+        name: 'html-transform',
+        enforce: 'pre',
+        transformIndexHtml: {
+          order: 'pre',
+          handler(html) {
+            return html
+              .replace('./assets/voyager.js', '/src/main.tsx')
+              .replace(/<link rel="stylesheet"[^>]*voyager\.css[^>]*>/, '');
+          },
+        },
+      },
       react(),
       tailwindcss(),
     ],
