@@ -392,8 +392,9 @@ export const DestinationsView: React.FC = () => {
                   {/* Bottom title inside media */}
                   <div className="absolute bottom-3 left-3 right-3 text-white">
                     <div className="flex items-center justify-between gap-2">
-                      <h3 className="text-xl sm:text-2xl font-black drop-shadow-sm leading-snug">
-                        {dest.name}
+                      <h3 className="text-xl sm:text-2xl font-black drop-shadow-sm leading-snug flex items-center gap-2">
+                        {dest.flag && <span className="text-2xl drop-shadow">{dest.flag}</span>}
+                        <span>{dest.name}</span>
                       </h3>
                       <div className="flex items-center gap-1 text-xs font-bold bg-white/20 backdrop-blur-md px-2 py-0.5 rounded-lg shrink-0">
                         <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
@@ -401,7 +402,7 @@ export const DestinationsView: React.FC = () => {
                       </div>
                     </div>
                     <p className="text-xs text-zinc-200 line-clamp-1 mt-0.5">
-                      {dest.tagline || dest.description}
+                      {dest.shortDescription || dest.tagline || dest.description}
                     </p>
                   </div>
                 </div>
@@ -468,8 +469,8 @@ export const DestinationsView: React.FC = () => {
                   {/* Actions & Pricing */}
                   <div className="pt-3 border-t border-surface-container-high/40 flex flex-col gap-2.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-secondary">
-                        From {formatPrice(dest.startingPrice || 180)} / trip
+                      <span className="text-xs font-bold text-primary">
+                        {dest.pricePKR ? `From ${dest.pricePKR}` : `From ${formatPrice(dest.startingPrice || 180)}`}
                       </span>
                       <button
                         onClick={() => setCurrentTab('map')}

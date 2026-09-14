@@ -43,6 +43,19 @@ export const FloatingActions: React.FC = () => {
     }
   ]);
 
+  const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
+
+  // Monitor scroll position to show Back to Top button only when scrolled down
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Auto scroll chat to bottom when messages change
   useEffect(() => {
     if (isSupportOpen) {
@@ -152,20 +165,22 @@ export const FloatingActions: React.FC = () => {
         id="floating-actions-container"
         className="fixed bottom-20 md:bottom-6 right-3 sm:right-6 z-40 flex items-center gap-2 sm:gap-2.5 print:hidden select-none"
       >
-        {/* Floating Back to Top Button */}
-        <button
-          id="floating-back-to-top"
-          onClick={scrollToTop}
-          type="button"
-          className="flex items-center gap-1.5 px-3 py-2.5 sm:px-3.5 sm:py-2.5 rounded-full bg-surface-container-lowest/95 dark:bg-surface-container/95 backdrop-blur-md text-on-surface border border-surface-container-high/70 shadow-lg hover:shadow-xl hover:bg-surface-container transition-all duration-200 cursor-pointer active:scale-95 group"
-          title="Back to top"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="w-4 h-4 text-primary transition-transform duration-200 group-hover:-translate-y-0.5" />
-          <span className="hidden sm:inline text-xs font-bold text-on-surface whitespace-nowrap">
-            Back to Top
-          </span>
-        </button>
+        {/* Floating Back to Top Button (Placed before Online Support) */}
+        {showBackToTop && (
+          <button
+            id="floating-back-to-top"
+            onClick={scrollToTop}
+            type="button"
+            className="flex items-center gap-1.5 px-3 py-2.5 sm:px-3.5 sm:py-2.5 rounded-full bg-surface-container-lowest/95 dark:bg-surface-container/95 backdrop-blur-md text-on-surface border border-surface-container-high/70 shadow-lg hover:shadow-xl hover:bg-surface-container transition-all duration-200 cursor-pointer active:scale-95 group animate-in fade-in zoom-in-95 duration-200"
+            title="Back to top"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-4 h-4 text-primary transition-transform duration-200 group-hover:-translate-y-0.5" />
+            <span className="hidden sm:inline text-xs font-bold text-on-surface whitespace-nowrap">
+              Back to Top
+            </span>
+          </button>
+        )}
 
         {/* Floating Online Support Button */}
         <button

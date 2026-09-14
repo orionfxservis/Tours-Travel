@@ -51,7 +51,8 @@ export const CURRENCY_MAP: Record<CurrencyCode, CurrencyInfo> = {
   AED: { code: 'AED', symbol: 'د.إ', name: 'UAE Dirham', rate: 3.67 },
   CAD: { code: 'CAD', symbol: 'CA$', name: 'Canadian Dollar', rate: 1.36 },
   AUD: { code: 'AUD', symbol: 'AU$', name: 'Australian Dollar', rate: 1.52 },
-  CHF: { code: 'CHF', symbol: 'CHF', name: 'Swiss Franc', rate: 0.90 }
+  CHF: { code: 'CHF', symbol: 'CHF', name: 'Swiss Franc', rate: 0.90 },
+  PKR: { code: 'PKR', symbol: 'PKR ', name: 'Pakistani Rupee', rate: 278.0 }
 };
 
 interface AppContextType {

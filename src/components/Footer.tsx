@@ -4,7 +4,6 @@ import { VOYAGER_LOGO_URL } from '../data/mockData';
 import {
   ShieldCheck,
   Lock,
-  ArrowUp,
   Compass,
   Luggage,
   MapPin,
@@ -234,7 +233,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Back-to-Top */}
+        {/* Bottom Bar: Copyright */}
         <div className="border-t border-surface-container-high/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant">
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Voyager Expeditions Inc. All rights reserved.</span>
@@ -246,15 +245,6 @@ export const Footer: React.FC = () => {
               Privacy Policy & Traveler Terms
             </button>
           </div>
-
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs transition-colors shadow-sm cursor-pointer group"
-            title="Back to top"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-primary transition-transform group-hover:-translate-y-0.5" />
-          </button>
         </div>
       </div>
     </footer>

@@ -15,7 +15,10 @@ import {
   Clock,
   Bookmark,
   ChevronRight,
-  Share2
+  Share2,
+  Sparkles,
+  MapPin,
+  ShieldCheck
 } from 'lucide-react';
 
 export const ExploreView: React.FC = () => {
@@ -50,8 +53,103 @@ export const ExploreView: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full pb-8">
+      {/* Powerful Cinematic Hero Section */}
+      <section className="relative w-full overflow-hidden bg-zinc-950 text-white">
+        <div className="relative w-full min-h-[540px] sm:min-h-[620px] lg:min-h-[680px] flex items-center justify-center px-4 sm:px-6 lg:px-12 py-16 sm:py-24">
+          {/* Large 4K Cinematic Travel Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-100 group-hover:scale-105"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=3840&q=95')`
+            }}
+          />
+          {/* Subtle Photographic Scrim - Preserves Rich 4K Scenery While Ensuring Text Legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-black/25 pointer-events-none" />
+
+          {/* Hero Content Container */}
+          <div className="relative z-10 max-w-5xl mx-auto w-full flex flex-col items-start gap-5 sm:gap-6">
+            {/* Elegant Pill Badges */}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-lg">
+                <Sparkles className="w-3.5 h-3.5 text-primary-fixed" />
+                <span className="text-xs uppercase tracking-widest text-primary-fixed font-bold">
+                  Bespoke Travel & Curated Escapes
+                </span>
+              </div>
+              <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[11px] font-semibold text-white shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>4K Ultra HD • Alpine Lake Braies</span>
+              </div>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
+              Plan Less.{' '}
+              <span className="text-primary-fixed">Travel Better.</span>
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-base sm:text-xl lg:text-2xl text-zinc-100 font-medium leading-relaxed max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              Personalized journeys, handpicked destinations, and unforgettable experiences — designed around you.
+            </p>
+
+            {/* The Two Clear Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full sm:w-auto">
+              {/* Button 1: Explore Destinations */}
+              <button
+                onClick={() => {
+                  const el = document.getElementById('destinations-section');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    setCurrentTab('destinations');
+                  }
+                }}
+                className="px-8 py-4 rounded-full bg-white text-zinc-900 hover:bg-zinc-100 font-bold text-sm sm:text-base shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <Compass className="w-5 h-5 text-primary transition-transform group-hover:rotate-45" />
+                <span>{t('exploreDestinations') || 'Explore Destinations'}</span>
+              </button>
+
+              {/* Button 2: Plan My Trip */}
+              <button
+                onClick={() => {
+                  showToast('Opening personalized route planner...', 'map');
+                  setCurrentTab('map');
+                }}
+                className="px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-sm sm:text-base shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <Sparkles className="w-5 h-5" />
+                <span>{t('planMyTrip') || 'Plan My Trip'}</span>
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+
+            {/* Social Proof & Trust Badges */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-5 border-t border-white/15 text-xs sm:text-sm text-zinc-300">
+              <div className="flex items-center gap-1.5">
+                <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
+                <span className="font-semibold text-white">4.9 / 5</span>
+                <span>(1,200+ itineraries)</span>
+              </div>
+              <span className="hidden sm:inline text-white/30">•</span>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Handpicked & Verified</span>
+              </div>
+              <span className="hidden sm:inline text-white/30">•</span>
+              <div className="flex items-center gap-1.5">
+                <Headphones className="w-4 h-4 text-primary-fixed" />
+                <span>24/7 Dedicated Concierge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Search & Exploration Header Panel */}
-      <section className="px-4 sm:px-6 pt-4 pb-2 max-w-7xl mx-auto w-full">
+      <section className="px-4 sm:px-6 -mt-6 sm:-mt-8 relative z-20 max-w-7xl mx-auto w-full">
         <div className="bg-surface-container-lowest rounded-2xl p-4 shadow-[0_4px_24px_-4px_rgba(27,59,72,0.07)] flex flex-col gap-3 border border-surface-container-high/40">
           {/* Search input field */}
           <div className="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-xl focus-within:ring-2 focus-within:ring-primary/40 transition-all">
@@ -409,48 +507,115 @@ export const ExploreView: React.FC = () => {
         </div>
       </section>
 
-      {/* Popular Destinations Worldwide (2x2 Rich Media Grid) */}
-      <section className="px-4 sm:px-6 pt-6 pb-2 max-w-7xl mx-auto w-full">
-        <div className="flex items-center justify-between mb-3">
+      {/* Popular Destinations Showcase (8 Attractive Cards) */}
+      <section id="destinations-section" className="px-4 sm:px-6 pt-8 pb-4 max-w-7xl mx-auto w-full scroll-mt-24">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
           <div>
-            <span className="text-[10px] sm:text-xs uppercase tracking-widest text-primary font-bold">
-              {t('wanderlustPicks') || 'Wanderlust Picks'}
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-on-surface">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{t('wanderlustPicks') || 'Top Recommended'}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-on-surface tracking-tight">
               {t('popularDestinations') || 'Popular Destinations'}
-            </h3>
+            </h2>
+            <p className="text-sm text-on-surface-variant mt-1">
+              Handpicked iconic escapes featuring private tours, luxury stays, and seamless logistics.
+            </p>
           </div>
           <button
             onClick={() => setCurrentTab('destinations')}
-            className="text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center gap-1"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-primary hover:text-primary/80 transition-colors cursor-pointer group self-start sm:self-auto"
           >
-            <span>42 Locations</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <span>View All Destinations</span>
+            <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          {filteredDestinations.slice(0, 4).map((dest) => (
+        {/* 8 Attractive Destination Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {filteredDestinations.slice(0, 8).map((dest) => (
             <div
               key={dest.id}
-              onClick={() => setCurrentTab('destinations')}
-              className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-sm flex flex-col justify-end p-3.5 cursor-pointer group active:scale-[0.98] transition-all hover:shadow-md"
+              onClick={() => {
+                showToast(`Exploring curated experiences for ${dest.flag || ''} ${dest.name}...`, 'compass');
+                setCurrentTab('destinations');
+              }}
+              className="bg-surface-container-lowest border border-surface-container-high/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(27,59,72,0.06)] hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col group cursor-pointer active:scale-[0.99]"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('${dest.imageUrl}')` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-              <div className="relative z-10 text-white">
-                <span className="text-[10px] text-primary-fixed uppercase tracking-wider font-bold">
-                  {dest.country}
-                </span>
-                <h4 className="font-bold text-base sm:text-lg leading-tight">
-                  {dest.name}
-                </h4>
-                <p className="text-[11px] text-zinc-200 mt-0.5">
-                  {dest.staysCount} Curated Stays
+              {/* Large Image with Destination Name Overlaid at the Bottom */}
+              <div className="relative w-full aspect-[4/3] overflow-hidden bg-zinc-900">
+                <img
+                  src={dest.imageUrl}
+                  alt={dest.altText || dest.name}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                
+                {/* Visual Gradient Overlay for Legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent pointer-events-none" />
+
+                {/* Top Badge (if any) */}
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-black/40 backdrop-blur-md text-white border border-white/20 shadow-sm flex items-center gap-1">
+                    <MapPin className="w-3 h-3 text-primary-fixed" />
+                    <span>{dest.country}</span>
+                  </span>
+                </div>
+
+                {/* Destination Name Overlaid at the Bottom of Large Image */}
+                <div className="absolute bottom-0 inset-x-0 p-3.5 z-10 flex items-end justify-between">
+                  <div className="flex items-center gap-2">
+                    {dest.flag && (
+                      <span className="text-2xl drop-shadow-md select-none" aria-label={dest.name}>
+                        {dest.flag}
+                      </span>
+                    )}
+                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight drop-shadow-md">
+                      {dest.name}
+                    </h3>
+                  </div>
+
+                  {dest.rating && (
+                    <div className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white text-xs font-semibold">
+                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                      <span>{dest.rating}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Card Body: Short description, Price, and Explore → CTA */}
+              <div className="p-4 flex-1 flex flex-col justify-between gap-3.5">
+                {/* Short Description */}
+                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed line-clamp-2 min-h-[2.5rem]">
+                  {dest.shortDescription || dest.description}
                 </p>
+
+                {/* Price and Explore Button Row */}
+                <div className="pt-3 border-t border-surface-container-high/50 flex items-center justify-between mt-auto">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] uppercase font-bold text-on-surface-variant/70 tracking-wider">
+                      Price Starting
+                    </span>
+                    <span className="text-sm sm:text-base font-extrabold text-primary tracking-tight">
+                      {dest.pricePKR
+                        ? `From ${dest.pricePKR}`
+                        : `From PKR ${((dest.startingPrice || 800) * 278).toLocaleString()}`}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showToast(`Exploring ${dest.flag || ''} ${dest.name}...`, 'compass');
+                      setCurrentTab('destinations');
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary/10 group-hover:bg-primary text-primary group-hover:text-white font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer shadow-sm active:scale-95"
+                  >
+                    <span>Explore</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </button>
+                </div>
               </div>
             </div>
           ))}

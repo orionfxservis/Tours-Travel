@@ -2,7 +2,7 @@ export type TabType = 'explore' | 'packages' | 'destinations' | 'map' | 'journal
 
 export type LanguageCode = 'en' | 'es' | 'fr' | 'ja' | 'de' | 'ar';
 
-export type CurrencyCode = 'USD' | 'EUR' | 'GBP' | 'JPY' | 'AED' | 'CAD' | 'AUD' | 'CHF';
+export type CurrencyCode = 'USD' | 'EUR' | 'GBP' | 'JPY' | 'AED' | 'CAD' | 'AUD' | 'CHF' | 'PKR';
 
 export interface CurrencyInfo {
   code: CurrencyCode;
@@ -90,6 +90,7 @@ export interface Destination {
   id: string;
   name: string;
   country: string;
+  flag?: string;
   region: string;
   imageUrl: string;
   altText?: string;
@@ -100,6 +101,8 @@ export interface Destination {
   weatherTemp?: string;
   rating?: number;
   tagline?: string;
+  shortDescription?: string;
+  pricePKR?: string;
   highlights?: string[];
   startingPrice?: number;
   description?: string;

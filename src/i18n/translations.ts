@@ -54,6 +54,10 @@ export const translations: Record<LanguageCode, Record<string, string>> = {
     lightMode: 'Light Mode',
     profile: 'Profile',
     notifications: 'Notifications',
+    heroHeadline: 'Plan Less. Travel Better.',
+    heroSubheadline: 'Personalized journeys, handpicked destinations, and unforgettable experiences — designed around you.',
+    exploreDestinations: 'Explore Destinations',
+    planMyTrip: 'Plan My Trip',
   },
   es: {
     appName: 'Voyager',
