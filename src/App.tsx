@@ -22,6 +22,7 @@ import { NotificationDrawer } from './components/NotificationDrawer';
 import { ProfileModal } from './components/ProfileModal';
 import { ShareModal } from './components/ShareModal';
 import { Toast } from './components/Toast';
+import { FloatingActions } from './components/FloatingActions';
 
 const MainContent: React.FC = () => {
   const { currentTab } = useApp();
@@ -60,6 +61,9 @@ const MainContent: React.FC = () => {
 
       {/* Persistent Bottom Nav for Mobile */}
       <BottomNav />
+
+      {/* Floating Back to Top and Online Support Actions */}
+      <FloatingActions />
 
       {/* Global Modals and Drawers */}
       <BookingPaymentModal />

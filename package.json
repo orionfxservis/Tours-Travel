@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && mkdir -p assets docs/assets && cp dist/assets/*.js assets/voyager.js && cp dist/assets/*.css assets/voyager.css && cp index.html 404.html && cp index.html docs/index.html && cp index.html docs/404.html && touch docs/.nojekyll && cp assets/* docs/assets/",
     "preview": "vite preview",
     "lint": "tsc --noEmit"
   },

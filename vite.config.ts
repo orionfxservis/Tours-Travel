@@ -9,7 +9,17 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    base: './',
+    plugins: [
+      react(),
+      tailwindcss(),
+      {
+        name: 'html-transform',
+        transformIndexHtml(html) {
+          return html.replace('./assets/voyager.js', '/src/main.tsx');
+        }
+      }
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
