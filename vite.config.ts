@@ -13,13 +13,23 @@ export default defineConfig(() => {
     plugins: [
       react(),
       tailwindcss(),
-      {
-        name: 'html-transform',
-        transformIndexHtml(html) {
-          return html.replace('./assets/voyager.js', '/src/main.tsx');
-        }
-      }
     ],
+    build: {
+      outDir: 'dist',
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/voyager.js',
+          chunkFileNames: 'assets/[name].js',
+          assetFileNames: (assetInfo) => {
+            const name = assetInfo.name || '';
+            if (name.endsWith('.css')) {
+              return 'assets/voyager.css';
+            }
+            return 'assets/[name].[ext]';
+          },
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
