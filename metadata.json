@@ -1,0 +1,6 @@
+{
+  "name": "Voyager - Custom Itineraries & Travel Planning",
+  "description": "Bespoke travel website for planning, budgeting, and booking custom itineraries with interactive maps, group collaboration, and offline support.",
+  "requestFramePermissions": ["geolocation", "notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary: var(--on-secondary);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--on-secondary-fixed);
+
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-fixed: var(--tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--tertiary-fixed-dim);
+
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-variant: var(--surface-variant);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+}
+
+:root {
+  --primary: #a43619;
+  --primary-container: #c64e2f;
+  --on-primary: #ffffff;
+  --on-primary-container: #fffbff;
+  --primary-fixed: #ffdbd2;
+  --primary-fixed-dim: #ffb4a2;
+
+  --secondary: #446371;
+  --secondary-container: #c4e5f5;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #486775;
+  --secondary-fixed: #c7e7f8;
+  --secondary-fixed-dim: #abcbdc;
+  --on-secondary-fixed: #001f2a;
+
+  --tertiary: #7d532e;
+  --tertiary-container: #996b43;
+  --on-tertiary: #ffffff;
+  --tertiary-fixed: #ffdcc2;
+  --tertiary-fixed-dim: #f3bb8e;
+
+  --surface: #fcf9f3;
+  --surface-dim: #dcdad4;
+  --surface-bright: #fcf9f3;
+  --surface-variant: #e5e2dc;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f3ed;
+  --surface-container: #f0eee8;
+  --surface-container-high: #ebe8e2;
+  --surface-container-highest: #e5e2dc;
+
+  --on-surface: #1c1c18;
+  --on-surface-variant: #58423c;
+  --inverse-surface: #31312d;
+  --inverse-on-surface: #f3f0ea;
+
+  --outline: #8b716b;
+  --outline-variant: #dfc0b8;
+}
+
+.dark {
+  --primary: #e55c3c;
+  --primary-container: #a43619;
+  --on-primary: #ffffff;
+  --on-primary-container: #ffe0d8;
+  --primary-fixed: #ffb4a2;
+  --primary-fixed-dim: #872105;
+
+  --secondary: #8bb1c4;
+  --secondary-container: #234352;
+  --on-secondary: #0a1920;
+  --on-secondary-container: #c7e7f8;
+  --secondary-fixed: #2c4b58;
+  --secondary-fixed-dim: #18333e;
+  --on-secondary-fixed: #e1f3fc;
+
+  --tertiary: #dcb38f;
+  --tertiary-container: #5a3c1f;
+  --on-tertiary: #271404;
+  --tertiary-fixed: #7d532e;
+  --tertiary-fixed-dim: #432911;
+
+  --surface: #121e24;
+  --surface-dim: #0d161a;
+  --surface-bright: #1b2c34;
+  --surface-variant: #223741;
+  --surface-container-lowest: #101c22;
+  --surface-container-low: #15242b;
+  --surface-container: #1b2d36;
+  --surface-container-high: #233842;
+  --surface-container-highest: #2b434f;
+
+  --on-surface: #f3f0ea;
+  --on-surface-variant: #c3bbb7;
+  --inverse-surface: #ebe8e2;
+  --inverse-on-surface: #1c1c18;
+
+  --outline: #9a8882;
+  --outline-variant: #43545d;
+}
+
+/* Base custom styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--surface);
+  color: var(--on-surface);
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for clean horizontal snap sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
